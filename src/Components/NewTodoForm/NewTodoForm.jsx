@@ -1,15 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import Todo from "../Todo/Todo";
 
 const NewTodoForm = () => {
+  const [task, setTask] = useState("");
+  const [deadline, setDeadline] = useState("");
+  const [taskArray, setTaskArray] = useState([]);
   // this component should render a form with one text input for the task to be created.
   // When this form is submitted, a new Todo component should be created;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("A task was submitted: " + task.value + "\n" + "Deadline: " + deadline.value);
+    setTask("");
+    setDeadline("");
+  };
+
+  const handleChangeTask = (e) => {
+    e.preventDefault();
+    setTask({value: e.target.value})
+  }
+
+  const handleChangeDeadline = (e) => {
+    e.preventDefault();
+    setDeadline({value: e.target.value})
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label>
-          Name:
-          <input type="text" name="name" />
+          Task:
+          <input type="text" name="task" value={task.value} onChange={(e) => handleChangeTask(e)}/>
+        </label>
+        <label>
+          Deadline:
+          <input type="text" name="deadline" value={deadline.value} onChange={(e) => handleChangeDeadline(e)}/>
         </label>
         <input type="submit" value="Submit" />
       </form>
