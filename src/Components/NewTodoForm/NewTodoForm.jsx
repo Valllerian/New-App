@@ -11,8 +11,10 @@ const NewTodoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("A task was submitted: " + task.value + "\n" + "Deadline: " + deadline.value);
+    setTaskArray({task:task, deadline:deadline})
     setTask("");
     setDeadline("");
+    console.log(taskArray)
   };
 
   const handleChangeTask = (e) => {
