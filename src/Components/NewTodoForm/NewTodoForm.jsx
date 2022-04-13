@@ -12,8 +12,8 @@ const NewTodoForm = () => {
     if (task !== "" && deadline !== "") {
       let currentTask = { task: task, deadline: deadline, visual: true };
       setTaskArray([...taskArray, currentTask]);
-      setTask("");
-      setDeadline("");
+      setTask({ value: '' });
+      setDeadline({ value: '' });
       alert(
         "A task was submitted: " +
           task.value +
@@ -65,7 +65,7 @@ const NewTodoForm = () => {
               return (
                 <div key={task.deadline.value}>
                   <Todo
-                    
+                    // use new library for uuid for each key!
                     task={task.task.value}
                     deadline={task.deadline.value}
                   />
