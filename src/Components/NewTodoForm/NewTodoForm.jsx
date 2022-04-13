@@ -11,7 +11,10 @@ const NewTodoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("A task was submitted: " + task.value + "\n" + "Deadline: " + deadline.value);
-    setTaskArray({task:task, deadline:deadline})
+    let currentTask = {task:task, deadline:deadline}
+    // let allTasks = [...taskArray,currentTask]
+    // console.log(allTasks)
+    setTaskArray([...taskArray,currentTask])
     setTask("");
     setDeadline("");
     console.log(taskArray)
@@ -41,7 +44,7 @@ const NewTodoForm = () => {
         <input type="submit" value="Submit" />
       </form>
       <div>
-        {taskArray ? (taskArray.map((task)=>{<Todo task = {task.task}/>})) : null}
+        {taskArray[0] ? (taskArray.map((task)=>{return <Todo task = {task.task.value} deadline = {task.deadline.value} />})) : null}
       </div>
     </div>
   );
