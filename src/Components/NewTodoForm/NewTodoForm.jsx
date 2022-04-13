@@ -9,11 +9,11 @@ const NewTodoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // if(task !== '' && deadline !== '')
-    if(task !== '' && deadline !== ''){
+    if (task !== "" && deadline !== "") {
       let currentTask = { task: task, deadline: deadline, visual: true };
       setTaskArray([...taskArray, currentTask]);
-      setTask('')
-      setDeadline('')
+      setTask("");
+      setDeadline("");
       alert(
         "A task was submitted: " +
           task.value +
@@ -22,11 +22,8 @@ const NewTodoForm = () => {
           deadline.value
       );
     } else {
-      alert(
-        "Type in task and deadline please!"
-      );
+      alert("Type in task and deadline please!");
     }
-    
   };
 
   const handleChangeTask = (e) => {
@@ -38,16 +35,16 @@ const NewTodoForm = () => {
   };
 
   return (
-    <div className="border border-gray-800 p-6 bg-[#6982d5] text-white">
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <div className="border border-gray-800 p-6 bg-[#6982d5] text-white rounded-xl shadow-2xl shadow-slate-500">
+      <form className="mb-6" onSubmit={(e) => handleSubmit(e)}>
         <label className="mr-9">
-          Task: 
+          Task:
           <input
             type="text"
             name="task"
             value={task.value}
             onChange={(e) => handleChangeTask(e)}
-            className='border border-gray-800 bg-[#e5f8ea] text-black'
+            className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md"
           />
         </label>
         <label className="">
@@ -57,7 +54,7 @@ const NewTodoForm = () => {
             name="deadline"
             value={deadline.value}
             onChange={(e) => handleChangeDeadline(e)}
-            className='border border-gray-800 bg-[#e5f8ea] text-black'
+            className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md"
           />
         </label>
         <input type="submit" value="Submit" className="pl-3" />
