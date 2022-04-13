@@ -17,9 +17,7 @@ const NewTodoForm = () => {
         "Deadline: " +
         deadline.value
     );
-    let currentTask = { task: task, deadline: deadline };
-    // let allTasks = [...taskArray,currentTask]
-    // console.log(allTasks)
+    let currentTask = { task: task, deadline: deadline, visual: true };
     setTaskArray([...taskArray, currentTask]);
     setTask({ value: "" });
     setDeadline({ value: "" });
@@ -61,11 +59,13 @@ const NewTodoForm = () => {
         {taskArray[0]
           ? taskArray.map((task) => {
               return (
-                <Todo
-                  key={task.deadline.value}
-                  task={task.task.value}
-                  deadline={task.deadline.value}
-                />
+                <div>
+                  <Todo
+                    key={task.deadline.value}
+                    task={task.task.value}
+                    deadline={task.deadline.value}
+                  />
+                </div>
               );
             })
           : null}
