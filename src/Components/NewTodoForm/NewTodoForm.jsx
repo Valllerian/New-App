@@ -10,41 +10,63 @@ const NewTodoForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("A task was submitted: " + task.value + "\n" + "Deadline: " + deadline.value);
-    let currentTask = {task:task, deadline:deadline}
+    alert(
+      "A task was submitted: " +
+        task.value +
+        "\n" +
+        "Deadline: " +
+        deadline.value
+    );
+    let currentTask = { task: task, deadline: deadline };
     // let allTasks = [...taskArray,currentTask]
     // console.log(allTasks)
-    setTaskArray([...taskArray,currentTask])
+    setTaskArray([...taskArray, currentTask]);
     setTask("");
     setDeadline("");
-    console.log(taskArray)
+    console.log(taskArray);
   };
 
   const handleChangeTask = (e) => {
     e.preventDefault();
-    setTask({value: e.target.value})
-  }
+    setTask({ value: e.target.value });
+  };
 
   const handleChangeDeadline = (e) => {
     e.preventDefault();
-    setDeadline({value: e.target.value})
-  }
+    setDeadline({ value: e.target.value });
+  };
 
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>
           Task:
-          <input type="text" name="task" value={task.value} onChange={(e) => handleChangeTask(e)}/>
+          <input
+            type="text"
+            name="task"
+            value={task.value}
+            onChange={(e) => handleChangeTask(e)}
+          />
         </label>
         <label>
           Deadline:
-          <input type="text" name="deadline" value={deadline.value} onChange={(e) => handleChangeDeadline(e)}/>
+          <input
+            type="text"
+            name="deadline"
+            value={deadline.value}
+            onChange={(e) => handleChangeDeadline(e)}
+          />
         </label>
         <input type="submit" value="Submit" />
       </form>
       <div>
-        {taskArray[0] ? (taskArray.map((task)=>{return <Todo task = {task.task.value} deadline = {task.deadline.value} />})) : null}
+        {taskArray[0]
+          ? taskArray.map((task) => {
+              return (
+                <Todo task={task.task.value} deadline={task.deadline.value} />
+              );
+            })
+          : null}
       </div>
     </div>
   );
