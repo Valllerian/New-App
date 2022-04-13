@@ -40,6 +40,9 @@ const NewTodoForm = () => {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      <div>
+        {taskArray ? (taskArray.map((task)=>{<Todo task = {task.task}/>})) : null}
+      </div>
     </div>
   );
 };
