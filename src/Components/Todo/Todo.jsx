@@ -11,9 +11,9 @@ const Todo = (props) => {
     setVisual(false);
   };
   return (
-    <div className={visual ? "true" : "hidden"}>
-      <div>Task: {task}</div>
-      <div>Deadline: {deadline} + </div>
+    <div className={visual ? "flex justify-between pt-4" : "hidden"}>
+      <div className="">Task: {task}</div>
+      <div className="">Deadline: {deadline}</div>
       <button onClick={(e) => deleteTask(e)}>X</button>
     </div>
   );

@@ -5,8 +5,6 @@ const NewTodoForm = () => {
   const [task, setTask] = useState("");
   const [deadline, setDeadline] = useState("");
   const [taskArray, setTaskArray] = useState([]);
-  // this component should render a form with one text input for the task to be created.
-  // When this form is submitted, a new Todo component should be created;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +19,6 @@ const NewTodoForm = () => {
     setTaskArray([...taskArray, currentTask]);
     setTask({ value: "" });
     setDeadline({ value: "" });
-    console.log(taskArray);
   };
 
   const handleChangeTask = (e) => {
@@ -35,22 +32,24 @@ const NewTodoForm = () => {
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <label>
-          Task:
+        <label className="mr-9">
+          Task: 
           <input
             type="text"
             name="task"
             value={task.value}
             onChange={(e) => handleChangeTask(e)}
+            className='border border-gray-800'
           />
         </label>
-        <label>
+        <label className="">
           Deadline:
           <input
             type="text"
             name="deadline"
             value={deadline.value}
             onChange={(e) => handleChangeDeadline(e)}
+            className='border border-gray-800'
           />
         </label>
         <input type="submit" value="Submit" />
