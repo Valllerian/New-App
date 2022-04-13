@@ -8,17 +8,25 @@ const NewTodoForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(
-      "A task was submitted: " +
-        task.value +
-        "\n" +
-        "Deadline: " +
-        deadline.value
-    );
-    let currentTask = { task: task, deadline: deadline, visual: true };
-    setTaskArray([...taskArray, currentTask]);
-    setTask({ value: "" });
-    setDeadline({ value: "" });
+    // if(task !== '' && deadline !== '')
+    if(task !== '' && deadline !== ''){
+      let currentTask = { task: task, deadline: deadline, visual: true };
+      setTaskArray([...taskArray, currentTask]);
+      setTask('')
+      setDeadline('')
+      alert(
+        "A task was submitted: " +
+          task.value +
+          "\n" +
+          "Deadline: " +
+          deadline.value
+      );
+    } else {
+      alert(
+        "Type in task and deadline please!"
+      );
+    }
+    
   };
 
   const handleChangeTask = (e) => {
