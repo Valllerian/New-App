@@ -21,18 +21,16 @@ const NewTodoForm = () => {
     // let allTasks = [...taskArray,currentTask]
     // console.log(allTasks)
     setTaskArray([...taskArray, currentTask]);
-    setTask("");
-    setDeadline("");
+    setTask({ value: "" });
+    setDeadline({ value: "" });
     console.log(taskArray);
   };
 
   const handleChangeTask = (e) => {
-    e.preventDefault();
     setTask({ value: e.target.value });
   };
 
   const handleChangeDeadline = (e) => {
-    e.preventDefault();
     setDeadline({ value: e.target.value });
   };
 
@@ -63,7 +61,11 @@ const NewTodoForm = () => {
         {taskArray[0]
           ? taskArray.map((task) => {
               return (
-                <Todo task={task.task.value} deadline={task.deadline.value} />
+                <Todo
+                  key={task.deadline.value}
+                  task={task.task.value}
+                  deadline={task.deadline.value}
+                />
               );
             })
           : null}
