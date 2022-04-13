@@ -18,7 +18,7 @@ disappears on save! 😁
 ## Installation
 Current project has been saved in my personal GitHub repository and is currently available for cloning and reviews on:
 
-https://github.com/Valllerian/New-App
+https://github.com/Valllerian/Todo-List-App
 
 ## Usage
 
