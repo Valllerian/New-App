@@ -63,9 +63,9 @@ const NewTodoForm = () => {
         {taskArray[0]
           ? taskArray.map((task) => {
               return (
-                <div>
+                <div key={task.deadline.value}>
                   <Todo
-                    key={task.deadline.value}
+                    
                     task={task.task.value}
                     deadline={task.deadline.value}
                   />
