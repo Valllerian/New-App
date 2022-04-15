@@ -9,8 +9,8 @@ const NewTodoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // if(task !== '' && deadline !== '')
-    if (task !== "" && deadline !== "") {
-      let currentTask = { task: task, deadline: deadline, visual: true };
+    if (task !== `` && deadline !== ``)  {
+      let currentTask = { 'task': task, 'deadline': deadline };
       setTaskArray([...taskArray, currentTask]);
       setTask({ value: '' });
       setDeadline({ value: '' });
