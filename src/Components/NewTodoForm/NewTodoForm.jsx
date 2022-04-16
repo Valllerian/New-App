@@ -9,11 +9,11 @@ const NewTodoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // if(task !== '' && deadline !== '')
-    if (task !== `` && deadline !== ``)  {
-      let currentTask = { 'task': task, 'deadline': deadline };
+    if (task !== `` && deadline !== ``) {
+      let currentTask = { task: task, deadline: deadline };
       setTaskArray([...taskArray, currentTask]);
-      setTask({ value: '' });
-      setDeadline({ value: '' });
+      setTask({ value: "" });
+      setDeadline({ value: "" });
       alert(
         "A task was submitted: " +
           task.value +
@@ -35,29 +35,39 @@ const NewTodoForm = () => {
   };
 
   return (
-    <div className="border border-gray-800 p-6 bg-[#6982d5] text-white rounded-xl shadow-2xl shadow-slate-500">
-      <form className="mb-6" onSubmit={(e) => handleSubmit(e)}>
-        <label className="mr-9">
-          Task:
+    <div className="border border-gray-800 p-10  bg-[#6982d5] text-white rounded-xl shadow-2xl shadow-slate-500">
+      <form className="mb-6 " onSubmit={(e) => handleSubmit(e)}>
+        <div className="pb-4">
+          <label className="mr-9">
+            Task:
+            <input
+              type="text"
+              name="task"
+              value={task.value}
+              onChange={(e) => handleChangeTask(e)}
+              className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md"
+            />
+          </label>
+        </div>
+        <div className="pb-4 ">
+          <label className=" ">
+            Deadline:
+            <input
+              type="text"
+              name="deadline"
+              value={deadline.value}
+              onChange={(e) => handleChangeDeadline(e)}
+              className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md "
+            />
+          </label>
+        </div>
+        <div className="flex justify-center items-center ">
           <input
-            type="text"
-            name="task"
-            value={task.value}
-            onChange={(e) => handleChangeTask(e)}
-            className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md"
+            type="submit"
+            value="Submit"
+            className="p-3 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 rounded-md  border border-gray-800 shadow-2xl shadow-slate-600"
           />
-        </label>
-        <label className="">
-          Deadline:
-          <input
-            type="text"
-            name="deadline"
-            value={deadline.value}
-            onChange={(e) => handleChangeDeadline(e)}
-            className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md"
-          />
-        </label>
-        <input type="submit" value="Submit" className="pl-3" />
+        </div>
       </form>
       <div>
         {taskArray[0]
