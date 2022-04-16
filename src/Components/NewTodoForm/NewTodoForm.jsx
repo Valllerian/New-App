@@ -37,8 +37,8 @@ const NewTodoForm = () => {
   return (
     <div className="border border-gray-800 p-10  bg-[#6982d5] text-white rounded-xl shadow-2xl shadow-slate-500">
       <form className="mb-6 " onSubmit={(e) => handleSubmit(e)}>
-        <div className="pb-4">
-          <label className="mr-9">
+        <div className="pb-4 ">
+          <label className="mr-9 ">
             Task:
             <input
               type="text"
