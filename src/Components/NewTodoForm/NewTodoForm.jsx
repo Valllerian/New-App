@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Todo from "../Todo/Todo";
-
+import useInputState from "../hooks/useInputState";
 const NewTodoForm = () => {
   const [task, setTask] = useState("");
   const [deadline, setDeadline] = useState("");
