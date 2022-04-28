@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import Todo from "../Todo/Todo";
 import useInputState from "../hooks/useInputState";
-const NewTodoForm = () => {
-  const [task, setTask] = useState("");
-  const [deadline, setDeadline] = useState("");
-  const [taskArray, setTaskArray] = useState([]);
 
+const NewTodoForm = () => {
+  // const [task, setTask] = useState("");
+  // const [deadline, setDeadline] = useState("");
+  const [task, updateTask, resetTask] = useInputState("");
+  const [deadline, updateDeadline, resetDeadline] = useInputState("");
+  const [taskArray, setTaskArray] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
     // if(task !== '' && deadline !== '')
     if (task !== `` && deadline !== ``) {
+      console.log(task)
+      console.log(deadline)
       let currentTask = { task: task, deadline: deadline };
       setTaskArray([...taskArray, currentTask]);
-      setTask({ value: "" });
-      setDeadline({ value: "" });
+      console.log(taskArray)
+      resetTask()
+      resetDeadline()
       alert(
         "A task was submitted: " +
           task.value +
@@ -26,13 +31,13 @@ const NewTodoForm = () => {
     }
   };
 
-  const handleChangeTask = (e) => {
-    setTask({ value: e.target.value });
-  };
+  // const handleChangeTask = (e) => {
+  //   updateTask()
+  // };
 
-  const handleChangeDeadline = (e) => {
-    setDeadline({ value: e.target.value });
-  };
+  // const handleChangeDeadline = (e) => {
+  //   updateDeadline();
+  // };
 
   return (
     <div className="border border-gray-800 p-10  bg-[#6982d5] text-white rounded-xl shadow-2xl shadow-slate-500">
@@ -44,7 +49,7 @@ const NewTodoForm = () => {
               type="text"
               name="task"
               value={task.value}
-              onChange={(e) => handleChangeTask(e)}
+              onChange={(e)=>updateTask(e)}
               className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md"
             />
           </label>
@@ -56,7 +61,7 @@ const NewTodoForm = () => {
               type="text"
               name="deadline"
               value={deadline.value}
-              onChange={(e) => handleChangeDeadline(e)}
+              onChange={updateDeadline}
               className="ml-1 border border-gray-800 bg-[#e5f8ea] text-black rounded-md "
             />
           </label>
